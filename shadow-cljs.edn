@@ -1,8 +1,6 @@
 ;; shadow-cljs configuration
 {:source-paths
- ["src/dev"
-  "src/main"
-  "src/test"]
+ ["src"]
 
  :dependencies
  [[lilactown/helix "0.1.9"]]
@@ -12,5 +10,7 @@
  :builds
  {:app
   {:target :browser
-   :modules {:main {:init-fn cljs-chess.app/init}}
+   :devtools {:preloads [dev.refresh]
+              :reload-strategy :full}
+   :modules {:main {:init-fn main.app/init}}
    :compiler-options {:install-deps true}}}}
