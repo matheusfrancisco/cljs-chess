@@ -1,17 +1,25 @@
 # Cljs Chess
 Chess Game made with CLJS
 
-## Run
+## Commands
+
+### Watch Dev/Tests
+Build the developer build and start shadow-cljs watching and serving main in [`localhost:8000`](http://localhost:8000) and tests in [`localhost:8100`](http://localhost:8100)
 ```bash
 npm run watch
 ```
-The app will be hosted locally on http://localhost:8080
 
-## Release
+### CI Tests
+Run **Karma** tests targeted for running CI tests with *Headless Chromium Driver*
+```bash
+npm run ci:tests
+```
+
+### Release
+Build the release package to production deploy
 ```bash
 npm run release
 ```
-Will generate js files to be deployed
 
 ## TODO
 - [ ] Base Layout
