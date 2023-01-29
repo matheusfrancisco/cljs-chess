@@ -11,6 +11,6 @@
 ;; to signal that it should be run after any code reload. We call the `refresh!`
 ;; function, which will tell react to refresh any components which have a
 ;; signature created by turning on the `:fast-refresh` feature flag.
-(defn ^:dev/after-load refresh []
+#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
+ (defn ^:dev/after-load refresh []
   (r/refresh!))
-
