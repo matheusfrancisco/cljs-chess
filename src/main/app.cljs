@@ -92,27 +92,45 @@
        {:className "white"}
        (d/div {:className "number"} "2")
        (d/span "\u2659"))
-      (d/div {:className "black"} (d/span "\u2659"))
-      (d/div {:className "white"} (d/span "\u2659"))
-      (d/div {:className "black"} (d/span "\u2659"))
-      (d/div {:className "white"} (d/span "\u2659"))
-      (d/div {:className "black"} (d/span "\u2659"))
-      (d/div {:className "white"} (d/span "\u2659"))
-      (d/div {:className "black"} (d/span "\u2659"))
+      (d/div {:className "black"}
+             (d/span "\u2659"))
+      (d/div {:className "white"} 
+             (d/span "\u2659"))
+      (d/div {:className "black"}
+             (d/span "\u2659"))
+      (d/div {:className "white"}
+             (d/span "\u2659"))
+      (d/div {:className "black"}
+             (d/span "\u2659"))
+      (d/div {:className "white"}
+             (d/span "\u2659"))
+      (d/div {:className "black"}
+             (d/span "\u2659"))
 
       (d/div {:className "black"}
              (d/div {:className "number"} "1")
              (d/span "\u2656")
-             (d/div {:className "letter"} "a")
-             )
-      (d/div {:className "white"} 
-             (d/span "\u2658"))
-      (d/div {:className "black"} (d/span "\u2657"))
-      (d/div {:className "white"} (d/span "\u2655"))
-      (d/div {:className "black"} (d/span "\u2654"))
-      (d/div {:className "white"} (d/span "\u2657"))
-      (d/div {:className "black"} (d/span "\u2658"))
-      (d/div {:className "white"} (d/span "\u2656"))))))
+             (d/div {:className "letter"} "a"))
+      (d/div {:className "white"}
+             (d/span "\u2658")
+             (d/div {:className "letter"} "b"))
+      (d/div {:className "black"}
+             (d/span "\u2657")
+             (d/div {:className "letter"} "c"))
+      (d/div {:className "white"}
+             (d/span "\u2655")
+             (d/div {:className "letter"} "d"))
+      (d/div {:className "black"} 
+             (d/span "\u2654")
+             (d/div {:className "letter"} "e"))
+      (d/div {:className "white"}
+             (d/span "\u2657")
+             (d/div {:className "letter"} "f"))
+      (d/div {:className "black"} 
+             (d/span "\u2658")
+             (d/div {:className "letter"} "g"))
+      (d/div {:className "white"} (d/span "\u2656")
+             (d/div {:className "letter"} "h"))))))
 
 ;; start your app with your React renderer
 (defn ^:export init []
