@@ -6,7 +6,7 @@
 body {
     display: flex;
     height: 100vh;
-    background-color: hotpink;
+    background-color: #E5E4E2;
     justify-content: center;
     align-items: center;
 }
@@ -23,13 +23,27 @@ div {
     height: 12.5%;
 }
 
+span {
+    display: flex;
+    font-size: 120px;
+    justify-content: center;
+    align-items: center;
+}
+
 .black {
-
-    background-color: #000;
-
+    display: flex;
+    background-color: #353935;
 }
+
 .white {
-
-    background-color: #fff;
- 
+    display: flex;
+    background-color: #F9F6EE;
 }
+
+.letter {
+    font-size: 38px;
+}
+
+.number {
+    font-size: 38px;
+} 
