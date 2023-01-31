@@ -23,30 +23,37 @@ div {
     height: 12.5%;
 }
 
+p {
+    font-size: 1vw;
+}
+
+.number {
+    display: flex;
+    align-items: flex-start;
+}
+
 span {
     display: flex;
-    font-size: 120px;
+    font-size: 5vw;
     justify-content: center;
     align-items: center;
 }
 
 .black {
-    display: flex;
     background-color: #353935;
+    height: 6vw;
+    width: 6vw;
 }
 
 .white {
-    display: flex;
     background-color: #F9F6EE;
+    height: 6vw;
+    width: 6vw;
 }
 
 .letter {
-    font-size: 38px;
-    position: relative;
-    top: 109px;
-    right: 3px;
+    font-size: 1vw;
+    justify-content: center;
+    display: flex;
 }
 
-.number {
-    font-size: 38px;
-} 
