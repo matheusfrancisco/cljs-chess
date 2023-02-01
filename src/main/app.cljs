@@ -14,109 +14,106 @@
       {:className "headings"}
       (d/h1 "Cljs Chess")
       (d/h2 "Chess Game made with CLJS"))
+     (d/table
+      {:className "chess-board"}
+      (d/tbody
+       (d/tr
+        (d/th)
+        (d/th "a")
+        (d/th "b")
+        (d/th "c")
+        (d/th "d")
+        (d/th "e")
+        (d/th "f")
+        (d/th "g")
+        (d/th "h"))
+       (d/tr
+        (d/th "8")
+        (d/td {:className "light" :id "a8"} "\u265C")
+        (d/td {:className "black" :id "b8"} "\u265E")
+        (d/td {:className "light" :id "c8"} "\u265D")
+        (d/td {:className "black" :id "d8"} "\u265B")
+        (d/td {:className "light" :id "e8"} "\u265A")
+        (d/td {:className "black" :id "f8"} "\u265D")
+        (d/td {:className "light" :id "g8"} "\u265E")
+        (d/td {:className "black" :id "h8"} "\u265C"))
 
-     (d/div {:className "container"}
+       (d/tr
+        (d/th "7")
+        (d/td {:className "black" :id "a7"} "\u265F")
+        (d/td {:className "light" :id "b7"} "\u265F")
+        (d/td {:className "black" :id "c7"} "\u265F")
+        (d/td {:className "light" :id "d7"} "\u265F")
+        (d/td {:className "black" :id "e7"} "\u265F")
+        (d/td {:className "light" :id "f7"} "\u265F")
+        (d/td {:className "black" :id "g7"} "\u265F")
+        (d/td {:className "light" :id "h7"} "\u265F"))
 
-            (d/div {:className "white"}
-                   (d/div {:className "number"}
-                          (d/p "8")
-                          (d/span "\u265C")))
-            (d/div {:className "black"} (d/span "\u265E"))
-            (d/div {:className "white"} (d/span "\u265D"))
-            (d/div {:className "black"} (d/span "\u265B"))
-            (d/div {:className "white"} (d/span "\u265A"))
-            (d/div {:className "black"} (d/span "\u265D"))
-            (d/div {:className "white"} (d/span "\u265E"))
-            (d/div {:className "black"} (d/span "\u265C"))
+       (d/tr
+        (d/th "6")
+        (d/td {:className "light" :id "a6"})
+        (d/td {:className "black" :id "b6"})
+        (d/td {:className "light" :id "c6"})
+        (d/td {:className "black" :id "d6"})
+        (d/td {:className "light" :id "e6"})
+        (d/td {:className "black" :id "f6"})
+        (d/td {:className "light" :id "g6"})
+        (d/td {:className "black" :id "h6"}))
 
-            (d/div {:className "black"}
-                   (d/div {:className "number"}
-                          (d/p "7")
-                          (d/span "\u265F")))
-            (d/div {:className "white"} (d/span "\u265F"))
-            (d/div {:className "black"} (d/span "\u265F"))
-            (d/div {:className "white"} (d/span "\u265F"))
-            (d/div {:className "black"} (d/span "\u265F"))
-            (d/div {:className "white"} (d/span "\u265F"))
-            (d/div {:className "black"} (d/span "\u265F"))
-            (d/div {:className "white"} (d/span "\u265F"))
+       (d/tr
+        (d/th "5")
+        (d/td {:className "black" :id "a5"})
+        (d/td {:className "light" :id "b5"})
+        (d/td {:className "black" :id "c5"})
+        (d/td {:className "light" :id "d5"})
+        (d/td {:className "black" :id "e5"})
+        (d/td {:className "light" :id "f5"})
+        (d/td {:className "black" :id "g5"})
+        (d/td {:className "light" :id "h5"}))
 
-            (d/div {:className "white"}
-                   (d/div {:className "number"}
-                          (d/p "6")))
-            (d/div {:className "black"})
-            (d/div {:className "white"})
-            (d/div {:className "black"})
-            (d/div {:className "white"})
-            (d/div {:className "black"})
-            (d/div {:className "white"})
-            (d/div {:className "black"})
+       (d/tr
+        (d/th "4")
+        (d/td {:className "light" :id "a4"})
+        (d/td {:className "black" :id "b4"})
+        (d/td {:className "light" :id "c4"})
+        (d/td {:className "black" :id "d4"})
+        (d/td {:className "light" :id "e4"})
+        (d/td {:className "black" :id "f4"})
+        (d/td {:className "light" :id "g4"})
+        (d/td {:className "black" :id "h4"}))
 
-            (d/div {:className "black"}
-                   (d/div {:className "number"}
-                          (d/p "5")))
-            (d/div {:className "white"})
-            (d/div {:className "black"})
-            (d/div {:className "white"})
-            (d/div {:className "black"})
-            (d/div {:className "white"})
-            (d/div {:className "black"})
-            (d/div {:className "white"})
+       (d/tr
+        (d/th "3")
+        (d/td {:className "black" :id "a3"})
+        (d/td {:className "light" :id "b3"})
+        (d/td {:className "black" :id "c3"})
+        (d/td {:className "light" :id "d3"})
+        (d/td {:className "black" :id "e3"})
+        (d/td {:className "light" :id "f3"})
+        (d/td {:className "black" :id "g3"})
+        (d/td {:className "light" :id "h3"}))
 
-            (d/div {:className "white"}
-                   (d/div {:className "number"}
-                          (d/p "4")))
-            (d/div {:className "black"})
-            (d/div {:className "white"})
-            (d/div {:className "black"})
-            (d/div {:className "white"})
-            (d/div {:className "black"})
-            (d/div {:className "white"})
-            (d/div {:className "black"})
+       (d/tr
+        (d/th "2")
+        (d/td {:className "light" :id "a2"} "\u2659")
+        (d/td {:className "black" :id "b2"} "\u2659")
+        (d/td {:className "light" :id "c2"} "\u2659")
+        (d/td {:className "black" :id "d2"} "\u2659")
+        (d/td {:className "light" :id "e2"} "\u2659")
+        (d/td {:className "black" :id "f2"} "\u2659")
+        (d/td {:className "light" :id "g2"} "\u2659")
+        (d/td {:className "black" :id "h2"} "\u2659"))
 
-            (d/div {:className "black"}
-                   (d/div {:className "number"}
-                          (d/p "3")))
-            (d/div {:className "white"})
-            (d/div {:className "black"})
-            (d/div {:className "white"})
-            (d/div {:className "black"})
-            (d/div {:className "white"})
-            (d/div {:className "black"})
-            (d/div {:className "white"})
-
-            (d/div {:className "white"}
-                   (d/div {:className "number"}
-                          (d/p "2")
-                          (d/span "\u2659")))
-            (d/div {:className "black"} (d/span "\u2659"))
-            (d/div {:className "white"} (d/span "\u2659"))
-            (d/div {:className "black"} (d/span "\u2659"))
-            (d/div {:className "white"} (d/span "\u2659"))
-            (d/div {:className "black"} (d/span "\u2659"))
-            (d/div {:className "white"} (d/span "\u2659"))
-            (d/div {:className "black"} (d/span "\u2659"))
-
-            (d/div {:className "black"}
-                   (d/div {:className "number"}
-                          (d/p "1")
-                          (d/span "\u2656")))
-            (d/div {:className "white"} (d/span "\u2658"))
-            (d/div {:className "black"} (d/span "\u2657"))
-            (d/div {:className "white"} (d/span "\u2655"))
-            (d/div {:className "black"} (d/span "\u2654"))
-            (d/div {:className "white"} (d/span "\u2657"))
-            (d/div {:className "black"} (d/span "\u2658"))
-            (d/div {:className "white"} (d/span "\u2656"))
-
-            (d/div {:className "letter"} "a")
-            (d/div {:className "letter"} "b")
-            (d/div {:className "letter"} "c")
-            (d/div {:className "letter"} "d")
-            (d/div {:className "letter"} "e")
-            (d/div {:className "letter"} "f")
-            (d/div {:className "letter"} "h")
-            (d/div {:className "letter"} "g")))))
+       (d/tr
+        (d/th "1")
+        (d/td {:className "black" :id "a1"} "\u2656")
+        (d/td {:className "light" :id "b1"} "\u2658")
+        (d/td {:className "black" :id "c1"} "\u2657")
+        (d/td {:className "light" :id "d1"} "\u2655")
+        (d/td {:className "black" :id "e1"} "\u2654")
+        (d/td {:className "light" :id "f1"} "\u2657")
+        (d/td {:className "black" :id "g1"} "\u2658")
+        (d/td {:className "light" :id "h1"} "\u2656")))))))
 
 ;; start your app with your React renderer
 (defn ^:export init []
