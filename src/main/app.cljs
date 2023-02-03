@@ -42,6 +42,25 @@
     [1 6] \u2658
     [1 7] \u2656}))
 
+(defn classname [n]
+  (if (even? n) "light" "black"))
+
+(defn board-id [row col]
+  (str (char (+ 96 col)) row))
+
+(defn make-initial-board []
+  (d/table
+   {:className "chess-board"}
+   (d/tbody
+    (for [row (range 8 0 -1)]
+      (d/tr
+       (d/th row)
+       (for [col (range 8)]
+         (d/td
+          {:className (classname (+ row col))
+           :id (board-id row col)}
+          (get @state [row col]))))))))
+
 ;; app
 (defnc app []
   (let [[_state _set-state] (hooks/use-state {})]
@@ -49,20 +68,10 @@
      (d/div
       {:className "headings"}
       (d/h1 "Cljs Chess")
-      (d/h2 "Chess Game made with CLJS"))
-     (d/table
-      {:className "chess-board"}
-      (d/tbody
-       (for [row (range 8 0 -1)]
-         (d/tr
-          (d/th row)
-          (for [col (range 8)]
-            (d/td
-             {:className (if (even? (+ row col)) "light" "black")
-              :id (str (char (+ 96 col)) row)}
-             (get @state [row col]))))))))))
+      (d/h2 "Chess Game made with CLJS")
+      (make-initial-board)))))
 
-  ;; start your app with your React renderer
+;; start your app with your React renderer
 (defn ^:export init []
   (doto (rdom/createRoot (js/document.getElementById "app"))
     (.render ($ app))))
