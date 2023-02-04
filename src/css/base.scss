@@ -6,30 +6,44 @@
 body {
     display: flex;
     height: 100vh;
-    background-color: hotpink;
+    background-color: #E5E4E2;
     justify-content: center;
     align-items: center;
 }
 
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 45vw;
-    height: 45vw;
+
+.chess-board { 
+    border-spacing: 0;
+    border-collapse: collapse;
 }
 
-div {
-    flex-basis: 12.5%;
-    height: 12.5%;
+.chess-board th {
+    padding: .5em;
 }
 
-.black {
+.chess-board th + th { border-bottom: 1px solid #353935; }
 
-    background-color: #000;
+.chess-board th:first-child,
 
+.chess-board td:last-child {
+    border-right: 1px solid #353935;
 }
-.white {
 
-    background-color: #fff;
- 
+.chess-board tr:first-child td {
+  border-top: 1px solid;
 }
+
+.chess-board tr:last-child td { border-bottom: 1px solid; }
+
+.chess-board th:empty { border: none; }
+
+.chess-board td { 
+    width: 11vmin;
+    height: 11vmin;
+    text-align: center;
+    font-size: 11vmin;
+    line-height: 0;
+}
+
+.light { background-color: #F9F6EE; }
+.dark { background-color: #353935; }
