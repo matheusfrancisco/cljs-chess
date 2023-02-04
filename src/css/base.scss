@@ -29,17 +29,21 @@ body {
     border-right: 1px solid #353935;
 }
 
+.chess-board tr:first-child td {
+  border-top: 1px solid;
+}
+
 .chess-board tr:last-child td { border-bottom: 1px solid; }
 
 .chess-board th:empty { border: none; }
 
 .chess-board td { 
-    width: 8vw;
-    height: 8vw;
+    width: 11vmin;
+    height: 11vmin;
     text-align: center;
-    font-size: 8vw;
+    font-size: 11vmin;
     line-height: 0;
 }
 
 .light { background-color: #F9F6EE; }
-.black { background-color: #353935; }
+.dark { background-color: #353935; }

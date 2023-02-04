@@ -43,15 +43,22 @@
     [1 7] \u2656}))
 
 (defn classname [n]
-  (if (even? n) "light" "black"))
+  (if (even? n) "light" "dark"))
 
 (defn board-id [row col]
   (str (char (+ 96 col)) row))
+
+(defn col-index [col]
+  (str (char (+ 97 col))))
 
 (defn make-initial-board []
   (d/table
    {:className "chess-board"}
    (d/tbody
+    (d/tr
+     (d/th nil)
+     (for [col (range 8)]
+       (d/th (col-index col))))
     (for [row (range 8 0 -1)]
       (d/tr
        (d/th row)
