@@ -58,13 +58,14 @@
     (d/tr
      (d/th nil)
      (for [col (range 8)]
-       (d/th (col-index col))))
+       (d/th {:key col} (col-index col))))
     (for [row (range 8 0 -1)]
-      (d/tr
-       (d/th row)
+      (d/tr {:key row}
+       (d/th  row)
        (for [col (range 8)]
          (d/td
           {:className (classname (+ row col))
+           :key (board-id row col)
            :id (board-id row col)}
           (get @state [row col]))))))))
 
