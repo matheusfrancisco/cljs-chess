@@ -1,7 +1,8 @@
 (ns main.app-test
   (:require
    [clojure.test :refer [are deftest is]]
-   [main.app :refer [board-id classname]]))
+   [main.app :refer [classname]]
+   [main.logic :refer [board-id]]))
 
 (deftest classname-test
   (is (= (classname 1) "dark"))
@@ -83,5 +84,4 @@
     [7 7] "h7"
     [8 7] "h8"))
 
-(comment
-  (board-id-test))
+
