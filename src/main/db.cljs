@@ -4,5 +4,3 @@
 
 (def board (atom (generate-board)))
 
-(comment
-  (move! board [2 0] [3 0]))

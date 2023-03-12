@@ -46,12 +46,13 @@
    [1 6] {:value  :knight :type :white}
    [1 7] {:value  :rook :type :white}})
 
-(defn board-id [row col]
-  (str (char (+ 96 (inc col))) row))
+(defn board-id [file rank]
+  (str (char (+ 96 (inc rank))) file))
 
 (defn col-index [col]
   (str (char (+ 97 col))))
 
+;; start movements functions
 (defn down [[file rank]]
   [(dec file) rank])
 
@@ -64,60 +65,90 @@
 (defn right [[file rank]]
   [file (inc rank)])
 
-(defn right-diagonal [[file rank]]
-  [(inc file) (inc rank)])
+(defn right-diagonal-down [position]
+  (-> position
+      down
+      right))
 
-(defn left-diagonal [[file rank]]
-  [(inc file) (dec rank)])
+(defn left-diagonal-down [position]
+  (-> position
+      down
+      left))
 
-(defn digits [n]
-  (loop [result (list), n n]
-    (if (pos? n)
-      (recur (conj result (rem n 10))
-             (quot n 10))
-      result)))
+(defn right-diagonal-up [[file rank]]
+  (-> [file rank]
+      (up)
+      (right)))
 
-(defn pawn-moves [[row col]]
-  (if (= row 7)
-    [(down [row col]) (down [(dec row) col])]
-    [(down [row col])]))
+(defn left-diagonal-up [[file rank]]
+  (-> [file rank]
+      (up)
+      (left)))
+;; end movements functions
 
-(defn filter-invalid-moves [board moves]
-  (filter (fn [[file rank]]
-            (let [{:keys [value]} (get board [file rank])]
-              (if (nil? value)
-                true
-                false))) moves))
+(defn allow-attack? [pos board]
+  (->>
+   pos
+   (filter
+    (fn [p]
+      (not (nil? (get board p)))))))
 
-(defn possible-pawn-moves [board from]
-  (let [moves (pawn-moves from)]
-    (filter-invalid-moves board moves)))
+(defn pawn-moves [board [file rank]]
+  (let [piece (get board [file rank])
+        color (:type piece)
+        fn-moves (fn []
+                   (case color
+                     :black
+                     (if (= file 7)
+                       [(down [file rank]) (down [(dec file) rank])]
+                       [(down [file rank])])
+                     :white
+                     (if (= file 2)
+                       [(up [file rank]) (up [(inc file) rank])]
+                       [(up [file rank])])))
+        attack (fn []
+                 (case color
+                   :black (->
+                           [(right-diagonal-down [file rank])
+                            (left-diagonal-down [file rank])]
+                           (allow-attack? board)
+                           vec)
+                   :white (-> [(left-diagonal-up [file rank])
+                               (right-diagonal-up [file rank])]
+                              (allow-attack? board)
+                              vec)))]
+    (when (not (nil? piece))
+      (concat
+       (fn-moves)
+       (attack)))))
 
-(defn possible-black-moves [board from value]
-  (case value
-    :pawn (possible-pawn-moves board from)))
-
-(defn possible-moves [from board]
+(defn moves [from board]
   (let [piece (get board from)
         {:keys [type value]} piece]
-    (if (= type :black)
-      (possible-black-moves board from value))))
+    (if (not (nil? piece))
+      (case value
+        :pawn (pawn-moves board from))
+      [])))
+
+(defn positions->id
+  [[file rank] board]
+  (reduce
+   (fn [moves [file rank]]
+     (assoc moves (board-id file rank) true)) {}
+   (moves [file rank] board)))
+
+(defn next-move?
+  [moves [file rank]]
+  (let [m (get moves (board-id file rank))]
+    (if m
+      true
+      false)))
 
 (defn move! [board from to]
   (let [piece (get @board from)]
-    (swap! board dissoc from)
+    (prn piece 1111)
+    (swap! board assoc from nil)
     (swap! board assoc to piece)))
-
-(defn valid-move?
-  [board [start-file start-rank]  [end-file end-rank]]
-  (let [{:keys [value type]} (get board [start-file start-rank])
-        file? (= start-file end-file)
-        rank? (= start-rank end-rank)]
-    (when (not (nil? value))
-      (case value
-        :pawn (case type
-                :black (prn 1)
-                :white (prn 2))))))
 
 (defn generate-board []
   (reduce
@@ -150,6 +181,6 @@
         (print "\n"))))
 
   (def board (generate-board))
-  (valid-move? board [7 6] [6 6])
+  (pawn-moves board [2 2])
   (generate-board))
 

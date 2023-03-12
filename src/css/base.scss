@@ -11,6 +11,15 @@ body {
     align-items: center;
 }
 
+.hint {
+  background-color: rgba(0,0,0,.3);
+  padding: 35.5%;
+  background-clip: content-box;
+  border-radius: 50%;
+  box-sizing: border-box;
+  pointer-events: none;
+  height: 100%;
+}
 
 .chess-board { 
     border-spacing: 0;
